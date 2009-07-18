@@ -19,7 +19,7 @@ class Merb::Authentication
           @u = find(:first, :conditions => {Merb::Authentication::Strategies::Basic::Base.login_param => login})
           @u && @u.authenticated?(password) ? @u : nil
         end
-      end # MMClassMethods   
+      end # MMClassMethods      
     end # SaltedUser
   end # Mixins
 end # Merb::Authentication
