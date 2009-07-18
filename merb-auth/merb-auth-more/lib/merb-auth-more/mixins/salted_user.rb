@@ -40,6 +40,9 @@ class Merb::Authentication
           elsif defined?(RelaxDB) && ancestors.include?(RelaxDB::Document)
             require path / "relaxdb_salted_user"
             extend(Merb::Authentication::Mixins::SaltedUser::RDBClassMethods)
+          elsif MongoMapper::Document > self
+            require path / "mm_salted_user"
+            extend(Merb::Authentication::Mixins::SaltedUser::MMClassMethods)
           end
           
         end # base.class_eval
