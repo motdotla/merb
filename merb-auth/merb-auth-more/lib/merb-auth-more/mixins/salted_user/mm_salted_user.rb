@@ -16,7 +16,7 @@ class Merb::Authentication
         end # self.extended
         
         def authenticate(login, password)
-          @u = find(:first, :conditios => {Merb::Authentication::Strategies::Basic::Base.login_param => login})
+          @u = find(:first, :conditions => {Merb::Authentication::Strategies::Basic::Base.login_param => login})
           @u && @u.authenticated?(password) ? @u : nil
         end
       end # MMClassMethods   
